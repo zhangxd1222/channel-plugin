@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-channel" version="0.0.1">
+    <name>channel</name>
+    <description>Cordova channel Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,channel</keywords>
+
+    <!-- js文件的地址，安装后路径为：plugins/插件Id/src属性值 -->
+    <js-module src="www/Channel.js" name="Channel">
+    <!-- 跟第三步中asserts/cordova_plugins.js中填的一样 -->
+        <clobbers target="Channel" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <!-- config-file中包含的这段会原封不动的插入到config.xml文件中 -->
+            <feature name="Toast">
+                <param name="android-package" value="com.chaqianma.borrow.Channel"/>
+            </feature>
+        </config-file>
+        <!-- 本地代码，有多个文件就写多个source-file，src对应本项目，target对应安装后的目录，注意分隔符别写成包格式(x.xx.xxx) -->
+        <source-file src="src/android/Channel.java" target-dir="src/com/chaqianma/borrow" />
+    </platform>
+    <!-- 其他平台的代码 -->
+</plugin>
