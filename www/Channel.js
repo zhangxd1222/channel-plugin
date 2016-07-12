@@ -1,10 +1,4 @@
-/**
- * Created by zhangxd on 2016/7/6.
- * 获取Metadata 里面 channel
- */
-//cordova-plugin-channel.Channel为插件id，要跟cordova_plugins.js中的id一致
-cordova.define("cordova-plugin-channel.Channel",   function(require, exports, module){
-    var exec = require("cordova/exec");
+var exec = require("cordova/exec");
     module.exports = {
         getChannel: function(onSuccess, onError){
             //参数1：成功回调function
@@ -14,4 +8,3 @@ cordova.define("cordova-plugin-channel.Channel",   function(require, exports, mo
             exec(onSuccess, onError,"Channel","getChannel",[]);
         }
     }
-});
