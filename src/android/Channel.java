@@ -33,6 +33,9 @@ public class Channel extends CordovaPlugin {
             ApplicationInfo ai = cordova.getActivity().getPackageManager().getApplicationInfo(cordova.getActivity().getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = ai.metaData;
             channel = bundle.getString("InstallChannel");
+            if (channel == null) {
+                channel = bundle.getInt("InstallChannel") + "";
+            }
             System.out.println("InstallChannel : " + channel);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "Not Found Channel: " + e.getMessage());
